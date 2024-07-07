@@ -1,23 +1,25 @@
-Testing-PHP
-Introduction
+# Guide des Tests en PHP
+
+## Introduction
+
 Les tests automatisés sont essentiels pour garantir la fiabilité et la maintenabilité de votre code. Ils permettent de détecter les erreurs rapidement, facilitent les modifications et améliorent la qualité globale de votre application.
 
-Types de tests
-Tests unitaires
+## Types de tests
+
+### Tests unitaires
+
 Les tests unitaires vérifient le comportement de petites unités de code de manière isolée, généralement au niveau des fonctions ou des méthodes. Ils sont rapides à exécuter et faciles à écrire.
 
-Exemple de test unitaire
+#### Exemple de test unitaire
+
 Supposons que nous ayons une fonction qui ajoute deux nombres :
 
-php
-Copier le code
+```php
 function add($a, $b) {
     return $a + $b;
 }
 Un test unitaire pour cette fonction pourrait ressembler à ceci :
 
-php
-Copier le code
 use PHPUnit\Framework\TestCase;
 
 class MathTest extends TestCase {
@@ -26,14 +28,14 @@ class MathTest extends TestCase {
         $this->assertEquals(0, add(-1, 1));
     }
 }
-Tests fonctionnels
+```
+### Tests fonctionnels
 Les tests fonctionnels vérifient que les fonctionnalités de l'application fonctionnent comme prévu. Ils simulent des scénarios réels d'utilisation de l'application et testent l'interaction entre plusieurs composants.
 
-Exemple de test fonctionnel
+#### Exemple de test fonctionnel
 Supposons que nous ayons un service d'enregistrement d'utilisateur :
 
-php
-Copier le code
+```php
 use PHPUnit\Framework\TestCase;
 use App\UserService;
 use App\User;
@@ -57,14 +59,14 @@ class UserServiceTest extends TestCase {
         $this->assertEquals('jane.smith@example.com', $savedUser['email']);
     }
 }
-Tests d'intégration
+```
+### Tests d'intégration
 Les tests d'intégration vérifient que différents modules ou services de l'application fonctionnent correctement ensemble. Ils permettent de détecter des problèmes d'intégration entre les composants.
 
-Exemple de test d'intégration
+#### Exemple de test d'intégration
 Supposons que nous ayons une base de données et un service de gestion d'utilisateurs. Un test d'intégration pourrait vérifier que l'enregistrement d'un utilisateur dans la base de données fonctionne correctement :
 
-php
-Copier le code
+```php
 use PHPUnit\Framework\TestCase;
 use App\UserService;
 use App\User;
@@ -95,6 +97,7 @@ class UserServiceIntegrationTest extends TestCase {
         self::$pdo->exec("DROP TABLE IF EXISTS user");
     }
 }
-Conclusion
-Mettre en place des tests unitaires, fonctionnels et d'intégration est essentiel pour garantir la qualité de votre code. Les tests unitaires permettent de vérifier le comportement isolé des fonctions ou des méthodes, les tests fonctionnels valident les fonctionnalités globales de l'application, et les tests d'intégration assurent que les différents composants interagissent correctement entre eux. En combinant ces types de tests, vous pouvez avoir une couverture de test complète et fiable.
+```
 
+## Conclusion
+Mettre en place des tests unitaires, fonctionnels et d'intégration est essentiel pour garantir la qualité de votre code. Les tests unitaires permettent de vérifier le comportement isolé des fonctions ou des méthodes, les tests fonctionnels valident les fonctionnalités globales de l'application, et les tests d'intégration assurent que les différents composants interagissent correctement entre eux. En combinant ces types de tests, vous pouvez avoir une couverture de test complète et fiable.
